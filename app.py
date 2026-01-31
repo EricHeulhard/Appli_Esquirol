@@ -6,5 +6,5 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🏠 La maison Esquiol")
+st.title("🏠 La maison Esquiol ")
 st.write("Bienvenue sur l'application de la maison Esquiol.")
