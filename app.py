@@ -105,4 +105,4 @@ st.subheader('U')
 # --- Félicitations à la fin ---
 if st.session_state.completed:
     st.balloons()
-    st.success("🎉 Félicitations ! Vous avez terminé le quiz.")
+    st.success("🎉 Félicitations ! On peut manger le gateau !!!!")
