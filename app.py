@@ -33,6 +33,7 @@ quiz_steps = [
     (indices_[1], mots_[1]),
     (indices_[2], mots_[2]),
     (indices_[3], mots_[3]),
+    (indices_[4], mots_[4])
 ]
 
 # --- Initialisation de l'état ---
