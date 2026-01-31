@@ -13,6 +13,9 @@ mots_.append('littera')
 indices_.append("On m'appelle des qu'on inspire mais on ne me prononce pas souvent")
 mots_.append("h")
 
+indices_.append("Ecoutez attentivement")
+mots_.append("gateau")
+
 
 
 
