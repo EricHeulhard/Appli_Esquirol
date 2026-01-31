@@ -9,7 +9,8 @@ st.set_page_config(
 st.title("🏠 La maison Esquirol ")
 st.write("Bienvenue sur l'application de la maison Esquiol.")
 
-st.write("Vous allez devoir résoudre quelques énigmes afin de pouvoir manger le gateau")
+st.write("Vous allez devoir résoudre quelques énigmes et faire quelques jeux"
+         " afin de pouvoir manger le gateau")
 
 st.write("Les indices ne se trouve que dans le salon")
 
@@ -18,7 +19,7 @@ quiz_steps = [
     (indices_[0], mots_[0]),
     (indices_[1], mots_[1]),
     (indices_[2], mots_[2]),
-    ("Indice 4", "histoire")
+    (indices_[3], mots_[3]),
 ]
 
 # --- Initialisation de l'état ---
