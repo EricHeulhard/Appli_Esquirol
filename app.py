@@ -7,6 +7,19 @@ st.set_page_config(
 )
 
 st.title("🏠 La maison Esquirol ")
+
+# CSS pour le fond
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://fr.wikipedia.org/wiki/Rue_Esquirol#/media/Fichier:F4457_Paris_XIII_rue_Esquirol.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+</style>
+'''
+
 st.write("Bienvenue sur l'application de la maison Esquiol.")
 
 st.write("Vous allez devoir résoudre quelques énigmes et faire quelques jeux"
