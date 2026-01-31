@@ -1,5 +1,5 @@
 import streamlit as st
-
+from indice_in_text import mots_,indices_
 st.set_page_config(
     page_title="La maison Esquiol",
     page_icon="🏠",
@@ -15,9 +15,9 @@ st.write("Les indices ne se trouve que dans le salon")
 
 # --- Définir les indices et mots attendus ---
 quiz_steps = [
-    ("Indice 1", "maison"),
-    ("Indice 2", "esquirol"),
-    ("Indice 3", "ville"),   # tu peux ajouter d'autres étapes ici
+    (indices_[0], mots_[0]),
+    (indices_[1], mots_[1]),
+    (indices_[2], mots_[2]),
     ("Indice 4", "histoire")
 ]
 
@@ -26,12 +26,16 @@ if "current_step" not in st.session_state:
     st.session_state.current_step = 0
 if "completed" not in st.session_state:
     st.session_state.completed = False
+if "answers" not in st.session_state:
+    st.session_state.answers = [""] * len(quiz_steps)  # mots saisis
 
 # --- Fonction pour valider le mot ---
 def submit_answer():
-    user_input = st.session_state[f"input_{st.session_state.current_step}"].strip().lower()
-    expected = quiz_steps[st.session_state.current_step][1].lower()
+    step = st.session_state.current_step
+    user_input = st.session_state["input_current"].strip().lower()
+    expected = quiz_steps[step][1].lower()
     if user_input == expected:
+        st.session_state.answers[step] = quiz_steps[step][1]  # garder le mot
         st.session_state.current_step += 1
         if st.session_state.current_step >= len(quiz_steps):
             st.session_state.completed = True
@@ -39,12 +43,19 @@ def submit_answer():
     else:
         st.error("Ce n'est pas le bon mot. Réessayez.")
 
-# --- Affichage de l'étape actuelle ---
-if not st.session_state.completed:
-    step = st.session_state.current_step
-    st.subheader(quiz_steps[step][0])
-    st.text_input("Mot attendu :", key=f"input_{step}", on_change=submit_answer)
-    st.button("Submit", on_click=submit_answer, key=f"button_{step}")
-else:
+# --- Affichage des étapes ---
+for i, (indice, mot) in enumerate(quiz_steps):
+    with st.container():
+        st.subheader(indice)
+        if i < st.session_state.current_step:
+            # Étape déjà validée
+            st.success(f"Mot trouvé : {st.session_state.answers[i]}")
+        elif i == st.session_state.current_step and not st.session_state.completed:
+            # Étape actuelle : seul input actif
+            st.text_input("Mot attendu :", key="input_current")
+            st.button("Submit", on_click=submit_answer)
+
+# --- Félicitations à la fin ---
+if st.session_state.completed:
     st.balloons()
     st.success("🎉 Félicitations ! Vous avez terminé le quiz.")
