@@ -69,6 +69,38 @@ for i, (indice, mot) in enumerate(quiz_steps):
             st.text_input("Mot attendu :", key="input_current")
             st.button("Submit", on_click=submit_answer)
 
+
+audio_file_path_la = "assets/316903__jaz_the_man_2__la-stretched.wav"  # ton fichier mp3 dans le même dossier que le script
+audio_file_path_do = "assets/316899__jaz_the_man_2__do-stretched.wav"
+audio_file_path_mi = "assets/316907__jaz_the_man_2__mi-stretched.wav"
+# Créer un bouton
+st.subheader('Je suis sur la guitare')
+if st.button("Ecoutez moi", key = "do_buton"):
+    # Lire le fichier audio
+    with open(audio_file_path_do, "rb") as f:
+        audio_bytes = f.read()
+    st.audio(audio_bytes, format="audio/wav")
+
+
+st.subheader('G')
+if st.button("---", key = "la_buton_1"):
+    # Lire le fichier audio
+    with open(audio_file_path_la, "rb") as f:
+        audio_bytes = f.read()
+    st.audio(audio_bytes, format="audio/wav")
+st.subheader('T')
+if st.button("---", key = "mi_buton"):
+    # Lire le fichier audio
+    with open(audio_file_path_la, "rb") as f:
+        audio_bytes = f.read()
+    st.audio(audio_bytes, format="audio/wav")
+if st.button("---", key = "la_buton_2"):
+    # Lire le fichier audio
+    with open(audio_file_path_mi, "rb") as f:
+        audio_bytes = f.read()
+    st.audio(audio_bytes, format="audio/wav")
+st.subheader('U')
+
 # --- Félicitations à la fin ---
 if st.session_state.completed:
     st.balloons()
