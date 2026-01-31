@@ -8,10 +8,11 @@ indices_.append("Veni Vidi Vici - ?? av. J-C" + "\n"+"omyxywsh")
 mots_.append('economix')
 
 indices_.append("Je repose souvent sur la tranche")
-mots_.append('alesia')
+mots_.append('littera')
 
 indices_.append("On m'appelle des qu'on inspire mais on ne me prononce pas souvent")
 mots_.append("h")
+
 
 
 
